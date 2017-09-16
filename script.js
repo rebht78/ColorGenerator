@@ -5,6 +5,11 @@ var divBox = document.querySelector('.box');
 var redColor = "";
 var greenColor = "";
 var blueColor = "";
+var redErrSpan = document.querySelector('#redErrMessage');
+var blueErrSpan = document.querySelector('#blueErrMessage');
+var greenErrSpan = document.querySelector('#greenErrMessage');
+
+var errorSpanArray = [redErrSpan, blueErrSpan, greenErrSpan];
 
 /*
 validate function to check whether input has been given by the user or not.
@@ -12,8 +17,19 @@ validate function to check whether input has been given by the user or not.
 function validate()
 {
 
-	if (!redColor || !greenColor || !blueColor)
+	if (!redColor)
 	{
+		showErrorMessage(redErrSpan,"Red Color Code should not be left blank!");
+		return false;
+	}
+	if (!greenColor)
+	{
+		showErrorMessage(greenErrSpan,"Green Color Code should not be left blank!");
+		return false;
+	}
+	if (!blueColor)
+	{
+		showErrorMessage(blueErrSpan,"Blue Color Code should not be left blank!");
 		return false;
 	}
 	return true;
@@ -28,13 +44,10 @@ function btnSubmitClickListener()
 	if (validate())
 	{
 		generateColor();
+
 		return true;
 	}
-	else
-	{
-		alert("Please enter the value of Code");
-		return false;
-	}
+	return false;
 }
 // generateColor will assign to div - box style of background color and innerHTML
 function generateColor()
@@ -57,4 +70,5 @@ function btnResetClickListener()
 	document.getElementById('txtBlueColor')
 	.setAttribute("placeholder", "Enter Blue Color Code");
 	divBox.style.visibility = "hidden";
+	hideErrorMessage(errorSpanArray);
 }
