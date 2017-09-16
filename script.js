@@ -2,15 +2,16 @@
 declaration of variables and assigning value from TextBoxes
 */
 var divBox = document.querySelector('.box');
-var redColor = document.getElementById('txtRedColor').value;
-var greenColor = document.getElementById('txtGreenColor').value;
-var blueColor = document.getElementById('txtBlueColor').value;
+var redColor = "";
+var greenColor = "";
+var blueColor = "";
 
 /*
 validate function to check whether input has been given by the user or not.
 */
 function validate()
 {
+
 	if (!redColor || !greenColor || !blueColor)
 	{
 		return false;
@@ -20,6 +21,9 @@ function validate()
 // click listener to handle click on button - Show Color
 function btnSubmitClickListener()
 {
+	redColor = document.getElementById('txtRedColor').value;
+	greenColor = document.getElementById('txtGreenColor').value;
+	blueColor = document.getElementById('txtBlueColor').value;
 	//call to validate, if it returns true then call generateColor
 	if (validate())
 	{
