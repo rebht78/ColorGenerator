@@ -14,20 +14,25 @@
 				<label for="txtRedColor">Red Color Code</label>
 				<input type="text" id="txtRedColor" class="form-control"
 				placeholder="Enter Red Color Code" >
+				<div id="redErrMessage" class="alert alert-danger" style="display:none;">
+
+				</div>
 			</div>
 			<div class="form-group">
 				<label for="txtGreenColor">Green Color Code</label>
 				<input type="text" id="txtGreenColor" class="form-control"
 				placeholder="Enter Green Color Code" >
+				<div id="greenErrMessage" class="alert alert-danger" style="display:none;"></div>
 			</div>
 			<div class="form-group">
 				<label for="txtBlueColor">Blue Color Code</label>
 				<input type="text" id="txtBlueColor" class="form-control"
 				placeholder="Enter Blue Color Code" >
+				<div id="blueErrMessage" class="alert alert-danger" style="display:none;"></div>
 			</div>
 			
 		</form>
-		<button type="submit" class="btn btn-primary" onclick="btnSubmitClickListener()">Show Color</button>
+		<button type="submit" class="btn btn-primary" onclick="return btnSubmitClickListener()">Show Color</button>
 			<button type="reset" class="btn btn-danger" 
 			onclick="btnResetClickListener()">
 				Reset Code
@@ -36,7 +41,7 @@
 			
 		</div>
 	</div>
+	<script type="text/javascript" src="commons.js"></script>
 	<script type="text/javascript" src="script.js"></script>
-
 </body>
 </html>
