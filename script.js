@@ -25,11 +25,13 @@ function validate()
 	if (!greenColor)
 	{
 		showErrorMessage(greenErrSpan,"Green Color Code should not be left blank!");
+		hideErrorMessage(redErrSpan);
 		return false;
 	}
 	if (!blueColor)
 	{
 		showErrorMessage(blueErrSpan,"Blue Color Code should not be left blank!");
+		hideErrorMessage(greenErrSpan);
 		return false;
 	}
 	return true;
@@ -43,6 +45,7 @@ function btnSubmitClickListener()
 	//call to validate, if it returns true then call generateColor
 	if (validate())
 	{
+		hideErrorMessage(errorSpanArray);
 		generateColor();
 
 		return true;
