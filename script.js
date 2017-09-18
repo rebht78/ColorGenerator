@@ -22,16 +22,31 @@ function validate()
 		showErrorMessage(redErrSpan,"Red Color Code should not be left blank!");
 		return false;
 	}
+	else if (isNaN(redColor))
+	{
+		showErrorMessage(redErrSpan,"Red Color Code should be a number");
+		return false;
+	}
 	if (!greenColor)
 	{
 		showErrorMessage(greenErrSpan,"Green Color Code should not be left blank!");
 		hideErrorMessage(redErrSpan);
 		return false;
 	}
+	else if (isNaN(greenColor))
+	{
+		showErrorMessage(greenErrSpan,"Green Color Code should be a number");
+		return false;
+	}
 	if (!blueColor)
 	{
 		showErrorMessage(blueErrSpan,"Blue Color Code should not be left blank!");
 		hideErrorMessage(greenErrSpan);
+		return false;
+	}
+	else if (isNaN(blueColor))
+	{
+		showErrorMessage(blueErrSpan,"Blue Color Code should be a number");
 		return false;
 	}
 	return true;
