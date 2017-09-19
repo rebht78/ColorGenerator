@@ -8,7 +8,7 @@ var blueColor = "";
 var redErrSpan = document.querySelector('#redErrMessage');
 var blueErrSpan = document.querySelector('#blueErrMessage');
 var greenErrSpan = document.querySelector('#greenErrMessage');
-
+var colorArray = [];
 var errorSpanArray = [redErrSpan, blueErrSpan, greenErrSpan];
 
 /*
@@ -70,10 +70,13 @@ function btnSubmitClickListener()
 // generateColor will assign to div - box style of background color and innerHTML
 function generateColor()
 {
-
-	divBox.setAttribute("style", "background-color:#"+redColor+greenColor+blueColor);
-	divBox.innerHTML = "#".concat(redColor).concat(greenColor).concat(blueColor);
-
+	divBox.style.backgroundColor = 'rgb('+redColor+','+greenColor+','+blueColor+')';
+	colorArray.push(redColor);
+	colorArray.push(greenColor);
+	colorArray.push(blueColor);
+	setColor(divBox,colorArray);
+	divBox.innerHTML = "<p>Color combination is "+redColor+", "+greenColor+", "+blueColor+"</p>";
+	// divBox.innerHTML = "#".concat(redColor).concat(greenColor).concat(blueColor);
 }
 // click listener to handle click on button - Reset Code
 function btnResetClickListener()
